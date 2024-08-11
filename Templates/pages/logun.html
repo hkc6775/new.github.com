@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} register {% endblock title%}
+
+{% block contend %}
+<section id="form_page" style="flex-flow:column;align-items:center;height:auto;">
+    <div class="title_page" style="width:100%;
+    box-sizing:border-box;padding:10px;display:flex;align-items:center;">
+        <nav style="position:relative;display:flex;align-items:center;
+        padding:10px;box-sizing:border-box;">
+            <a href="{% url 'products:accueil' %}" style="font-size: 1.3em"><ion-icon name="arrow-back"></ion-icon></a>
+        </nav>
+        <h3>Inscrivez-vous</h3>
+    </div>
+    <div class="conteneur">
+        {% include "layouts/bulles/welcome.html" %}
+
+        <div class="title_page">
+            <h3>Veuillez vous inscrire cher utilisateur.</h3>
+        </div>
+        <form method="POST">
+            {% csrf_token %}
+            {% include 'layouts/bulles/error_form.html' %}
+            {% if succes %}
+                <div style="position: relative;width: 100%;height: auto;box-sizing: border-box;
+                justify-content: center;items-align: center;display: flex;flex-flow: wrap;padding: 10px;
+                background: green;">
+                    <span style="color: white">{{succes}}</span>
+                </div>
+            {% endif %}
+            {% if error %}
+                <div style="position: relative;width: 100%;height: auto;box-sizing: border-box;
+                justify-content: center;items-align: center;display: flex;flex-flow: wrap;padding: 10px;
+                background: red;">
+                    <span style="color: white">{{error}}</span>
+                </div>
+            {% endif %}
+            {% include 'layouts/connect_inp/email.html' %}
+            {% include 'layouts/connect_inp/password.html' %}
+            {% include 'layouts/connect_inp/confirm.html' %}
+            {% include 'layouts/button.html' %}
+        </form>
+
+        <div class="bulle_form">
+            <ul>
+                <li>
+                    <p>J'ai déjà un compte. 
+                        <a href="{% url 'forms:login' %}"> Je me connecte !</a>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+{% endblock contend %}

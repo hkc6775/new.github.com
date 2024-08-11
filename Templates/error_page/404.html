@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>page 404</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'css/error_404.css' %}">
+    </head>
+    <style>
+        body {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0px;
+            padding: 0px;
+        }
+        body>main {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60%;
+            height: 100vh;
+        }
+        body>main>section {
+            position: relative;
+            display: flex;
+            width: 60%;
+            height: auto;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        body main>section>ul {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        body main>section>ul>li {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: auto;
+            padding: 10px;
+            box-sizing: border-box;
+            border: hidden;
+            list-style: none;
+        }
+        body main>section>ul>li>h1 {
+            position: relative;
+            display: flex;
+            flex-flow: wrap;
+            color: red;
+        }
+        body main>section>ul>li>figure {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 150px;
+            border: hidden;
+        }
+        body main>section>ul>li>figure>img {
+            position: relative;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            background: #777;
+        }
+        body main>section>ul>li>ol {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: auto;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        body main>section>ul>li>ol>li {
+            position: relative;
+            flex-flow: wrap;
+            list-style-type: circle;
+            margin-top: 10px;
+        }
+        body main>section>ul>li>a {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: auto;
+            height: auto;
+            padding: 10px;
+            box-sizing: border-box;
+            text-decoration: none;
+            flex-flow: wrap;
+        }
+        @media screen and (max-width: 680px) {
+            body main {
+                position: relative;
+                width: 100%;
+            }
+            body main>section {
+                position: relative;
+                width: 100%;
+            }
+        }
+    </style>
+    <body>
+    <main>
+        <section>
+            <ul>
+                <li><h1>Erreur 404</h1></li>
+                <li>
+                    <figure>
+                        <img src="" alt="">
+                    </figure>
+                </li>
+                <li>
+                    <ol>
+                        <strong>Solution et problème</strong>
+                        <li>Vérifier votre connexion !</li>
+                        <li>Vérifier l'url dans le navigateur !</li>
+                        <li>recharger la page !</li>
+                    </ol>
+                </li>
+                <li><a href="/">retour à la page d'accueil</a></li>
+            </ul>
+        </section>
+    </main>
+        
+        <script src="" async defer></script>
+    </body>
+</html>

@@ -1,0 +1,160 @@
+@import 'commande_page.css';
+@import 'root.css';
+@import 'body.css';
+#conteneur_principal {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: wrap;
+    padding: 10px;
+    box-sizing: border-box;
+    border: hidden;
+}
+
+#conteneur_principal legend {
+    position: relative;
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-flow: wrap;
+    border: hidden;
+    padding: 10px;
+    box-sizing: border-box;
+    align-items: center;
+    background: var(--color-gray-clair);
+    color: black;
+    font-weight: bold;
+    border-radius: 20px;
+}
+
+#conteneur_principal legend button {
+    position: relative;
+    margin-left: 10px;
+    width: auto;
+    height: auto;
+    padding: 7px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    border: 1px solid var(--color-gray);
+    transition: 1s;
+}
+
+#conteneur_principal legend button:hover {
+    position: relative;
+    scale: .9;
+    cursor: pointer;
+}
+
+#conteneur_principal ul {
+    position: relative;
+    width: calc(96% / 2);
+    height: auto;
+    padding: 10px;
+    display: block;
+    margin: 1%;
+    box-sizing: border-box;
+    border: 1px solid var(--color-gray);
+    border-radius: 20px;
+    box-shadow: 1px 2px 3px var(--color-gray);
+    background: rgb(209, 43, 250);
+}
+
+#conteneur_principal ul:hover {
+    transform: scaleY(.9);
+}
+
+#conteneur_principal ul li:nth-child(1) {
+    position: relative;
+    width: auto;
+    height: auto;
+    padding: 7px;
+    box-sizing: border-box;
+    border: 1px solid rgb(146, 16, 179);
+    display: flex;
+    flex-flow: wrap;
+    border-radius: 10px;
+    list-style: none;
+    color: white;
+    box-shadow: 2px 4px 6px rgb(113, 9, 139);
+    margin-bottom: 10px;
+}
+
+#conteneur_principal ul .dsr {
+    position: relative;
+    width: auto;
+    height: auto;
+    padding: 4px;
+    box-sizing: border-box;
+    border: hidden;
+    display: flex;
+    flex-flow: wrap;
+    list-style: none;
+}
+
+#conteneur_principal ul li:nth-child(4) {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    list-style: none;
+}
+
+#conteneur_principal ul li:nth-child(4) button {
+    position: relative;
+    float: right;
+    width: auto;
+    height: auto;
+    padding: 7px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    border: 1px solid rgb(172, 26, 209);
+    transition: 1s;
+}
+
+#conteneur_principal ul li:nth-child(4) button:hover {
+    position: relative;
+    scale: .9;
+    cursor: pointer;
+}
+
+#conteneur_principal ul li:nth-child(4) button span {
+    position: relative;
+    font-size: 1em;
+    font-weight: bold;
+    color: red;
+}
+
+.bublePanierVide {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    background: rgb(40, 150, 40);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.bublePanierVide .icon {
+    position: relative;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.3em;
+}
+
+.bublePanierVide .texte {
+    position: relative;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Edition du mail</title>
+    </head>
+    <body>
+        <div style="position: relative;display: block;">
+            <div style="position: relative;display: flex;flex-flow: wrap;font-size: 1.02em;
+            justify-content: center;items-align: center;">
+                <h4 style="position: relative;">
+                    HKCSERVICES.CI : Vérification de la modification du mail du compte << {{email}} >>
+                </h4>
+            </div>
+
+            <div style="position: relative;display: flex;flex-flow: wrap;">
+                <p style="position: relative;">
+                    Bonjour chers utilisateur ! Une demande de modification de votre mail a été éffectuée 
+                    de votre compte ! Pour éviter tout sortes de piratage l'équipe HKCSERVICES.CI
+                    a mis en place un système de vérification.
+                    Ce système de vérification consiste a savoir si vous êtes celui qui est effectué cette
+                    demande. Cliquer sur l'un des boutons ci-dessous pour continuer !
+                </p>
+            </div>
+
+            <div style="position: relative;width: 100%;
+            height: auto;box-sizing: border-box;padding: 10px;display: flex;flex-flow: wrap;
+            justify-content: center;items-align: center;
+            ">
+                <a href="http://{{domaine}}/yes_is_me/{{user_mail.ancien_mail}}/{{user_mail.new_mail}}" style="text-decoration: none;position: relative;width: auto;
+                height: auto;box-sizing: border-box;padding: 10px;display: flex;
+                background: green;border-raduis: 20px;color: white">Oui, c'est bien moi !</a>
+
+                <a href="http://{{domaine}}/no_is_not_me/{{user_mail.ancien_mail}}" style="text-decoration: none;position: relative;width: auto;
+                height: auto;box-sizing: border-box;padding: 10px;display: flex;
+                background: red;border-raduis: 20px;color: white">Non, je suis pas informer !</a>
+            </div>
+        </div>
+    </body>
+</html>

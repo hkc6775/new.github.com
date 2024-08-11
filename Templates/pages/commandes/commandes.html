@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>commandes</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/commandes.css' %}">
+    <link rel="stylesheet" href="{% static 'css/load.css' %}">
+    <script src="{% static 'js/load.js' %}" async defer></script>
+    <script src="{% static 'js/commandes.js' %}" async defer></script>
+</head>
+
+<body>
+    <main>
+        <header>
+            <nav>
+                <a href="{% url 'products:accueil' %}"><ion-icon name="arrow-back"></ion-icon></a>
+            </nav>
+            <div style="align-items: center">
+                {% if user.is_authenticated %}
+                {% if ctx.commandes %}
+                <form method="POST">
+                    {% csrf_token %}
+                    <select name="dates">
+                        <optgroup label="Liste des dates">
+                            {% for item in ctx.cmmd %}
+                            {% if item.ref %}
+                            <option value="{{item.ref}}">{{item.ref}}</option>
+                            {% endif %}
+                            {% endfor %}
+                        </optgroup>
+                    </select>
+                    <button type="submit"><ion-icon name="search"></ion-icon></button>
+                </form>
+                {% else %}
+                <strong>LISTE DES COMMANDES</strong>
+                {% endif %}
+                {% else %}
+                <form method="POST">
+                    {% csrf_token %}
+                    <input type="text" name="search" placeholder="Id commande">
+                    <button type="submit"><ion-icon name="search"></ion-icon></button>
+                </form>
+                {% endif %}
+            </div>
+        </header>
+        <section>
+            {% for item in ctx.commandes %}
+            <table class="recu_command">
+                <thead>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li><strong>Ref : {{item.ref}}</strong></li>
+                                <li><strong>Date : {{item.date}} </strong></li>
+                                <li><strong>Total : {{item.total}} frs </strong></li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <figure>
+                                <img src="{{ item.codeBar.url }}">
+                            </figure>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody class="zone_info_cmmd">
+                    <tr>
+                        <td class="tdBody"><strong>Produits</strong></td>
+                        <td class="tdBody"><strong>Prix</strong></td>
+                        <td class="tdBody"><strong>Quantitées</strong></td>
+                    </tr>
+                    {% if item.prodPrix != "price is multiple" and item.qts != "qts is multiple" %}
+                    <tr class="tr_tab">
+                        <td class="tdInfo">{{item.prodName}}</td>
+                        <td class="tdInfo">{{item.prodPrix}}</td>
+                        <td class="tdInfo">{{item.qts}}</td>
+                    </tr>
+                    {% else %}
+                    <input type="hidden" class="commands" value="{{item.prodName}}">
+                    {% endif %}
+                </tbody>
+                <tfoot class="tfoot">
+                    <tr>
+                        <td class="status">
+                            <strong>Status : </strong>
+                            {% if item.status == True %}
+                            <span class="span_yes_livrer" style="text-indent:10px;">livrer</span>
+                            {% elif item.annuler %}
+                            <div style="position: relative;width:auto;height:auto;display:flex;
+                            flex-flow: wrap;box-sizing:border-box;align-items:center;">
+                                <span style="color: blue;text-indent:10px;">annulé</span>
+                            </div>
+                            {% else %}
+                            <span class="span_no_livrer" style="text-indent:10px;">non livrer</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <button type="button" class='generer_pdf'>Generer pdf</button>
+                        </td>
+                        <td>
+                            {% if item.annuler == False %}
+                            <a href="/deleted/{{item.id}}">
+                                <ion-icon name="close"></ion-icon>
+                                <span>Annuler</span>
+                            </a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+            {% endfor %}
+        </section>
+    </main>
+    {% include 'layouts/layout/load.html' %}
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha512-qZvrmS2ekKPF2mSznTQsxqPgnpkI4DNTlrdUmTzrDgektczlKNRRhy5X5AAOnx5S09ydFYWWNSfcEqDTTHgtNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
+    <script src="{% static 'js/generer_pdf.js' %}" defer></script>
+</body>
+</html>

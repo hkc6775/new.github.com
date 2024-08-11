@@ -1,0 +1,9 @@
+<ul class="inp_and_icon">
+    <li><ion-icon name="mail" class="icon"></ion-icon></li>
+    <li>
+        {{ form.email }}
+        {% if form.email.errors %}
+            <i class="error_input">{{ form.email.errors }}</i>
+        {% endif %}
+    </li>
+</ul>

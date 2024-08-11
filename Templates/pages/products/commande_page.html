@@ -1,0 +1,158 @@
+
+{% extends 'pages/products/baseprod.html' %}
+{% load static %}
+
+{% block title %}produit{% endblock title %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/commande_page.css' %}">
+{% endblock link %}
+
+{% block script %}
+<script src="{% static 'js/commande_page.js' %}" async defer></script>
+{% endblock script %}
+
+{% block Titre_page %}PRODUIT{% endblock Titre_page %}
+
+{% block contend %}
+    {% if commune and Poids %}
+        <section class="info_one">
+            {% if error %}
+            <div style="position: relative;width: 100%;height: auto;padding: 10px;
+            box-sizing:border-box;justify-content: center;align-items: center;background: red;color: white;">{{error}}</div>
+            {% endif %}
+            {% if succes %}
+            <div style="position: relative;width: 100%;height: auto;padding: 10px;
+            box-sizing:border-box;justify-content: center;align-items: center;background: green;color: white;">{{succes}}</div>
+            {% endif %}
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset id="prod_form">
+                    <legend>Informations du produit</legend>
+                    <div id="img_div">
+                        <figure>
+                            <img src="{{product.images_one.url}}" class="{{product.name}}">
+                        </figure>
+                    </div>
+                    <div id="prod_name_div">
+                        <strong>Produit : </strong>
+                        <span style="text-indent: 10px;" id="id_prod_{{product.id}}" class="prod_name">{{product.name}}</span>
+                        <input type="hidden" name="prodName" value="{{product.name}}">
+                    </div>
+                    <div id="prod_name_div">
+                        <strong>Prix : </strong>
+                        <span id="prix_prod" style="text-indent: 10px;"></span>
+                        <em style="text-indent: 10px;">fr</em>
+                        <input type="hidden" name="prodPrix" value="">
+                    </div>
+                    <div id="select_div">
+                        <strong>Poids : </strong>
+                        <select name="poids" id="poids">
+                            <optgroup label="Poids">
+                                {% for item in Poids %}
+                                <option value="{{item.prix_poids}}">{{item.poids}}</option>
+                                {% endfor %}
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div id="qt_div">
+                        <ul>
+                            <li><strong>Quantitées : </strong></li>
+                            <li>
+                                <button type="button" id="decrements">-</button>
+                                <input type="text" name="qts" id="values">
+                                <button type="button" id="increments">+</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="zone_infos_services">
+                        <div>
+                            <img src="{% static 'img/bot-service.jpg' %}">
+                        </div>
+                        <div>
+                            <strong>Pour plus de 999 boules</strong>
+                            <p>
+                                Veuillez contacter le services clients ! 
+                                <a href="mailto:hkcservices.ci@gmail.com">Cliquez ici</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div id="storageSucces">
+                        <div><ion-icon name="happy" style="color: white;"></ion-icon></div>
+                        <div>
+                            <p>Produit ajouter succès !</p>
+                        </div>
+                    </div>
+                    <div id="zone_btn">
+                        <button type="button" id="set_panier" class="{% if user.is_authenticated %}idUser{{user.id}}{% else %}idUser{% endif %}">Ajouter</button>
+                    </div>
+                </fieldset>
+                <div id="zone_commande_directe">
+                    <div id="zone_btn" class="zone_btn">
+                        <button type="button" id="toogle_command">Commander</button>
+                    </div>
+                    <fieldset class="go_form">
+                        <legend>Informations du client</legend>
+                        <div id="chmp">
+                            <ul>
+                                <li><label for="username"><strong>Je suis M./Mdme/Mdlle</strong></label></li>
+                                <li><input type="text" id="username" name="username" 
+                                    placeholder="Votre nom complets" value="{% if user.is_authenticated %}{{userInfo.nom}} {{userInfo.prenom}}{% endif %}"></li>
+                            </ul>
+                            {% if user.is_authenticated %}
+                            {% else %}
+                            <div class="buble_connected">
+                                <div class="icon_zone"><ion-icon name="megaphone"></ion-icon></div>
+                                <div class="text_zone">
+                                    <p>
+                                        Remplissez automatiquement ce formulaire. Gagnez du temps ! <a href="{% url 'forms:register' %}">Créer un compte</a>
+                                    </p>
+                                </div>
+                            </div>
+                            {% endif %}
+                            <ul>
+                                <li><label for="commune"><strong>Où vous livrez ?</strong></label></li>
+                                <li>
+                                    <select id="commune" name="commune" placeholder="Votre commune">
+                                        <optgroup label="Communes" id="communes_group"></optgroup>
+                                        {% for item in commune %}
+                                        <option value="{{item.prix_livraison}}">{{item.localisation}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </li>
+                            </ul>
+                            <div id="livraison_prix">
+                                <ul>
+                                    <li>
+                                        <strong>Livraison : </strong>
+                                        <span style="text-indent: 10px;color: orangered" id="montant_livraison">1000</span>
+                                        <em style="text-indent: 10px;color: orangered">frs</em>
+                                    </li>
+                                </ul>
+                            </div>
+                            <ul>
+                                <li><label for="contact"><strong>Qui appeler pour la reception ?</strong></label></li>
+                                <li><input type="tel" id="contact" name="contact" placeholder="Le contact"
+                                    value="{% if user.is_authenticated %}{{userInfo.contact}}{% endif %}"></li>
+                            </ul>
+                        </div>
+                        <div class="zoneT">
+                            <ul>
+                                <li><ion-icon name="pricetags" style="color: orange"></ion-icon></li>
+                                <li>
+                                    <strong>Total : </strong>
+                                    <span style="text-indent: 10px; color:orangered" id="total_price_cmmd"></span>
+                                    <em style="text-indent: 10px; color:orangered">fr</em>
+                                    <input type="hidden" name="Total" id="sendTotal" value="">
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="zone_btn">
+                            <button type="submit">Valider</button>
+                        </div>
+                    </fieldset>
+                </div>
+            </form>
+        </section>
+    {% endif %}
+{% endblock contend %}

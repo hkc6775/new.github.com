@@ -1,0 +1,319 @@
+@import "body.css";
+@import "root.css";
+body>main>#form_page_xdf {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+body>main>#form_page_xdf>.title_page {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    max-height: 70px;
+    box-sizing: border-box;
+    padding: 10px;
+    border-bottom: 2px solid rgb(209, 43, 250);
+}
+
+body>main>#form_page_xdf>.title_page>nav {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+body>main>#form_page_xdf>.title_page>h3 {
+    position: relative;
+    display: flex;
+    flex-flow: wrap;
+}
+
+body>main>#form_page_xdf>.logo_and_username {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    max-height: 100px;
+    box-sizing: border-box;
+    padding: 10px;
+    border-bottom: 2px solid rgb(209, 43, 250);
+}
+
+body>main>#form_page_xdf>.logo_and_username>figure {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+body>main>#form_page_xdf>.logo_and_username>figure>img {
+    position: relative;
+    display: flex;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #777;
+    border: 2px solid rgb(209, 43, 250);
+}
+
+@media screen and (max-width:680px) {
+    body>main>#form_page_xdf>.logo_and_username>figure>img {
+        position: relative;
+        display: flex;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #777;
+        border: 2px solid rgb(209, 43, 250);
+    }
+}
+
+body>main>#form_page_xdf>.logo_and_username>.username {
+    position: relative;
+    display: block;
+    align-items: center;
+    width: 80%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+body>main>#form_page_xdf>.logo_and_username>.username>div {
+    position: relative;
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    padding: 3px;
+}
+
+body>main>#form_page_xdf>form {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+body>main>#form_page_xdf>form>.inp_and_icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-top: 3px;
+}
+
+body>main>#form_page_xdf>form>.inp_and_icon>li {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+}
+
+body>main>#form_page_xdf>form>.inp_and_icon>li>.info_champ {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+body>main>#form_page_xdf>form>.inp_and_icon>li>.info_champ>.info_icon {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: auto;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+body>main>#form_page_xdf>form>.inp_and_icon>li>.info_champ>.text {
+    position: relative;
+    display: block;
+    align-items: center;
+    width: 80%;
+    height: auto;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+body>main>#form_page_xdf>form>.inp_and_icon>li>.info_champ>.text>div {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-flow: wrap;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    padding: 3px;
+}
+
+body>main>#form_page_xdf>form>.inp_and_icon>li>ul {
+    display: none;
+}
+
+body>main>#form_page_xdf>form>.inp_and_icon>li>ul.activate {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-top: 2px;
+    background: #77777749;
+}
+
+body>main>#form_page_xdf>form>.inp_and_icon>li>ul>li:nth-child(1) {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+
+body>main>#form_page_xdf>form>.inp_and_icon>li>ul>li:nth-child(1)>input {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    padding: 10px;
+    outline: none;
+    border: hidden;
+}
+
+body>main>#form_page_xdf>form>.inp_and_icon>li>ul>li:nth-child(1)>select {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: auto;
+    box-sizing: border-box;
+    padding: 10px;
+    outline: none;
+    border: hidden;
+}
+
+body>main>#form_page_xdf>form>.inp_and_icon>li>ul>li:nth-child(2) {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    padding: 3px;
+}
+
+body>main>#form_page_xdf>form>.conteneur_btn {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+
+body>main>#form_page_xdf>form>.conteneur_btn>button {
+    position: relative;
+    display: flex;
+    font-size: 1.3em;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 50px;
+    max-height: 70px;
+    background: blue;
+    border: hidden;
+    cursor: pointer;
+    color: white;
+    transition: 1s;
+}
+
+body>main>#form_page_xdf>form>.conteneur_btn>button:hover {
+    position: relative;
+    transform: scale(.9);
+}
+
+body>main>#form_page_xdf>.nav_bar {
+    position: fixed;
+    display: flex;
+    right: 0px;
+    top: 10px;
+    width: auto;
+    height: 40px;
+    max-height: 60px;
+    background: green;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    overflow: hidden;
+}
+
+body>main>#form_page_xdf>.nav_bar>.logo_menu {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    order: 2;
+    cursor: pointer;
+}
+
+body>main>#form_page_xdf>.nav_bar>.logo_menu>.icon_menu {
+    position: relative;
+    display: flex;
+    font-size: 1.4em;
+    color: white;
+}
+
+body>main>#form_page_xdf>.nav_bar>.zone_a {
+    display: none;
+}
+
+body>main>#form_page_xdf>.nav_bar>.zone_a.active {
+    position: relative;
+    display: flex;
+    flex-flow: wrap;
+    width: auto;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    order: 1;
+}
+
+body>main>#form_page_xdf>.nav_bar>.zone_a>a {
+    position: relative;
+    display: flex;
+    flex-flow: wrap;
+    color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+@media screen and (max-width:680px) {
+    body>main>#form_page_xdf>.nav_bar>.zone_a>a {
+        font-size: .8em;
+    }
+}

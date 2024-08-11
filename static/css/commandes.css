@@ -1,0 +1,299 @@
+@import 'body.css';
+main header {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    border-bottom: 2px solid #777;
+}
+
+main header nav {
+    position: relative;
+    width: 15%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+a {
+    position: relative;
+    text-decoration: none;
+}
+
+main header>div {
+    position: relative;
+    width: 85%;
+    height: auto;
+    display: flex;
+}
+
+main header>div>form {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+main header>div>form>select {
+    position: relative;
+    width: 50%;
+    height: auto;
+    display: flex;
+    padding: 10px;
+    background: orangered;
+    color: white;
+    border-radius: 10px;
+    border: hidden;
+    outline: none;
+}
+
+main header>div>form>button {
+    position: relative;
+    width: auto;
+    height: auto;
+    display: flex;
+    padding: 10px;
+    border: hidden;
+    background: #bbbaba;
+    border-radius: 10px;
+    left: 1%;
+    border: hidden;
+    transition: 1s;
+}
+
+main header>div>form>button:hover {
+    position: relative;
+    scale: .9;
+    cursor: pointer;
+}
+
+main header>div>form>input {
+    position: relative;
+    width: 70%;
+    height: auto;
+    display: flex;
+    padding: 10px;
+    border: 2px solid #b1b0b0;
+    border-radius: 10px;
+}
+
+main section {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: column;
+    padding: 10px;
+}
+
+main section table {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: column;
+    margin-top: 10px;
+    box-shadow: 1px 2px 3px #777;
+}
+
+main section table>thead {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+
+main section table>thead tr {
+    position: relative;
+    width: calc(100% / 2);
+    height: auto;
+    padding: 6px;
+    background: rgb(140, 230, 140);
+}
+
+main section table>thead tr td {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+main section table>thead tr td>ul {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+}
+
+main section table>thead tr td>ul li {
+    position: relative;
+    width: 100%;
+    height: calc(100% / 3);
+    display: flex;
+    flex-flow: wrap;
+    list-style: none;
+    padding: 3px;
+}
+
+main section table>thead tr td>figure {
+    position: relative;
+    width: 100%;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+main section table>thead tr td>figure>img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background: #777;
+}
+
+main section table>tbody {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: column;
+}
+
+main section table>tbody tr {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+
+main section table>tbody tr .tdBody {
+    position: relative;
+    width: calc(100% / 3);
+    height: auto;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border: 1px solid rgb(16, 146, 16);
+    background: rgb(67, 197, 67);
+}
+
+main section table>tbody tr .tdInfo {
+    position: relative;
+    width: calc(100% / 3);
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-flow: wrap;
+    padding: 5px;
+    background: rgb(82, 238, 82);
+    border: 1px solid rgb(16, 146, 16);
+}
+
+main section table>tfoot {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: rgb(140, 230, 140);
+}
+
+main section table>tfoot tr {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+
+main section table>tfoot tr td {
+    position: relative;
+    width: calc(100% / 3);
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-flow: wrap;
+    padding: 5px;
+}
+
+main section table>tfoot tr td button {
+    position: relative;
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: orangered;
+    color: white;
+    border: hidden;
+    transition: 1s;
+}
+
+main section table>tfoot tr td button:hover {
+    position: relative;
+    scale: .9;
+    cursor: pointer;
+}
+
+main section table>tfoot tr td .span_no_livrer {
+    position: relative;
+    color: #777;
+    text-indent: 3px;
+}
+
+main section table>tfoot tr td .span_yes_livrer {
+    position: relative;
+    color: rgb(14, 141, 14);
+    text-indent: 3px;
+}
+
+main section table>tfoot tr td a {
+    position: relative;
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px;
+    background: red;
+    color: white;
+    border: hidden;
+    transition: 1s;
+}
+
+main section table>tfoot tr td a:hover {
+    position: relative;
+    scale: .9;
+    cursor: pointer;
+}
+
+main section table>tfoot tr td a ion-icon {
+    position: relative;
+    margin: 0px;
+}
+
+main section table>tfoot tr td a span {
+    position: relative;
+    text-indent: 3px;
+    font-size: .9em;
+    margin: 0px;
+}
+
+@media screen and (max-width:980px) {
+    main section table>tfoot tr td a span:nth-child(2) {
+        display: none;
+    }
+    main section table>tfoot tr td a {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+    }
+}

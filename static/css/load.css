@@ -1,0 +1,141 @@
+@import 'root.css';
+.loading_page {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgb(204, 203, 203);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 1000000000000000000000000000000000000;
+}
+
+.loading_page>.zone {
+    position: absolute;
+    width: auto;
+    height: auto;
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading_page>.zone>.zone_conteneur {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.loading_page>.zone>.zone_conteneur>.conteneur {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 2px 10px #777;
+    animation: 2s tourner ease-in infinite;
+}
+
+.loading_page>.zone>.zone_conteneur>.conteneur::before {
+    position: absolute;
+    left: 0px;
+    content: "";
+    width: 100%;
+    border-radius: 50%;
+    height: 100%;
+    background: rgb(209, 43, 250);
+    animation: 2s before ease-in infinite;
+}
+
+@keyframes before {
+    0%,
+    50% {
+        border-top-right-radius: 100%;
+    }
+    0%,
+    100% {
+        border-top-right-radius: 0%;
+    }
+}
+
+@keyframes tourner {
+    0%,
+    50% {
+        transform: scale(.9);
+    }
+    0%,
+    100% {
+        transform: scale(1);
+    }
+}
+
+.loading_page>.zone>.zone_conteneur>.conteneur span {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: wrap;
+    background: white;
+    box-shadow: 3px 5px 6px #777;
+    animation: 2s span_anime ease-in infinite;
+}
+
+@keyframes span_anime {
+    0%,
+    50% {
+        transform: translateX(calc(var(--i) * 100%));
+        width: calc(var(--i) * 50px);
+        height: 50px;
+    }
+    50%,
+    100% {
+        transform: translateX(calc(var(--i) * 0%));
+        width: calc(var(--i) * 50px);
+        height: 50px;
+        opacity: calc(-.1 * var(--i));
+    }
+}
+
+.loading_page>.zone>.zone_text {
+    position: relative;
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.loading_page>.zone>.zone_text>h4 {
+    position: relative;
+    font-size: .9em;
+    display: flex;
+    flex-flow: wrap;
+    color: #777;
+    animation: 2s chargement ease-in infinite;
+}
+
+@keyframes chargement {
+    0%,
+    50% {
+        transform: scale(.9);
+        color: #a7a5a5;
+    }
+    0%,
+    100% {
+        transform: scale(1);
+    }
+}

@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contend %}
+<section id="form_page_xdf">
+    <div class="title_page">
+        <nav>
+            <a href="{% url 'forms:infos_suplemented' %}"><ion-icon name="arrow-back"></ion-icon></a>
+        </nav>
+        <h3>Récupérer votre compte</h3>
+    </div>
+
+    <ul class="class_ytln">
+        <li>
+            <div class="text">
+                <p>
+                    Bonjour,
+                    Vous avez demandé à réinitialiser votre mot de passe. Pour procéder à cette étape, 
+                    veuillez entrée votre mail de connexion dans le champ ci-dessous et cliquer sur le bouton enreg :
+                </p>
+            </div>
+            <ul class="class_lopm">
+                <li><strong>Addresse mail</strong></li>
+                <li>
+                    <form method="POST" action="{% url 'forms:recup' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% include 'layouts/bulles/error_form.html' %}
+                        {% if succes %}
+                            <div style="position: relative;width: 100%;height: auto;box-sizing: border-box;
+                            justify-content: center;items-align: center;display: flex;flex-flow: wrap;padding: 10px;
+                            background: green;">
+                                <span style="color: white" class="succes">{{succes}}</span>
+                            </div>
+                        {% endif %}
+                        {% if error %}
+                            <div style="position: relative;width: 100%;height: auto;box-sizing: border-box;
+                            justify-content: center;items-align: center;display: flex;flex-flow: wrap;padding: 10px;
+                            background: red;">
+                                <span style="color: white" class="error">{{error}}</span>
+                            </div>
+                        {% endif %}
+                        <ul>
+                            <li>
+                                {{ form.email }}
+                                {% if form.email.errors %}
+                                    <i class="error_input">{{ form.email.errors }}</i>
+                                {% endif %}
+                            </li>
+                        </ul>
+
+                        <div class="zone_btn">
+                            <button type="submit" id="id87">Enreg</button>
+                        </div>
+                    </form>
+                </li>
+                <li class='nb-notif' style="display:flex;justify-content:center;
+                align-items:center;flex-flow: wrap;font-size: 1.1em;box-sizing: border-box;
+                padding: 10px;"></li>
+            </ul>
+        </li>
+    </ul>
+</section>
+{% endblock contend %}
+{% block script %}
+<script type="text/javascript" src="{% static 'js/verify.js' %}" defer></script>
+{% endblock script %}

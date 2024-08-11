@@ -1,0 +1,9 @@
+<ul class="inp_and_icon">
+    <li><ion-icon name="key" class="icon"></ion-icon></li>
+    <li>
+        {{ form.password2 }}
+        {% if form.password2.errors %}
+            <span class="error_input">{{ form.password2.errors }}</span>
+        {% endif %}
+    </li>
+</ul>

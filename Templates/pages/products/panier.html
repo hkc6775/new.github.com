@@ -1,0 +1,107 @@
+{% extends 'pages/products/baseprod.html' %}
+{% load static %}
+        
+{% block title %}panier{% endblock title %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/panier.css' %}">
+{% endblock link %}
+
+{% block script %}
+<script src="{% static 'js/panier.js' %}" async defer></script>
+{% endblock script %}
+
+{% block Titre_page %}PANIER{% endblock Titre_page %}
+
+{% block contend %}
+    {% if commune %}
+        <section id="conteneur">
+            <fieldset id="conteneur_principal" class="{% if user.is_authenticated %}idUser{{user.id}}{% else %}idUser{% endif %}">
+                <legend>
+                    Produits ajoutés
+                    <button type="button" id="clear_panier" style="align-items:center;display:flex;">
+                        vider le panier
+                    </button>
+                </legend>
+            </fieldset>
+            {% if error %}
+            <div style="position: relative;width: 100%;height: auto;padding: 10px;
+            box-sizing:border-box;justify-content: center;align-items: center;background: red;color: white;">{{error}}</div>
+            {% endif %}
+            {% if succes %}
+            <div style="position: relative;width: 100%;height: auto;padding: 10px;
+            box-sizing:border-box;justify-content: center;align-items: center;background: green;color: white;">{{succes}}</div>
+            {% endif %}
+            <form method="POST" id="yrdtsdz">
+                {% csrf_token %}
+                <div id="zone_commande_directe">
+                    <fieldset class="panier_form ">
+                        <legend>Informations du client</legend>
+                        <div id="chmp">
+                            <ul>
+                                <li><label for="username"><strong>Je suis M./Mdme/Mdlle</strong></label></li>
+                                <li><input type="text" id="username" name="username" placeholder="Votre nom complets"
+                                    value="{% if user.is_authenticated %}{{userInfo.nom}} {{userInfo.prenom}}{% endif %}"></li>
+                                <input type="hidden" name="commandes" id="setCommandes">
+                            </ul>
+                            {% if user.is_authenticated %}
+                            {% else %}
+                            <div class="buble_connected">
+                                <div class="icon_zone"><ion-icon name="megaphone"></ion-icon></div>
+                                <div class="text_zone">
+                                    <p>
+                                        Remplissez automatiquement ce formulaire. Gagnez du temps ! <a href="{% url 'forms:register' %}">Créer un compte</a>
+                                    </p>
+                                </div>
+                            </div>
+                            {% endif %}
+                            <ul>
+                                <li><label for="commune"><strong>Où vous livrez ?</strong></label></li>
+                                <li>
+                                    <select id="commune" name="commune" placeholder="Votre commune">
+                                    <optgroup label="Communes" id="communes_group"></optgroup>
+                                    {% for item in commune %}
+                                    <option value="{{item.prix_livraison}}">{{item.localisation}}</option>
+                                    {% endfor %}
+                                </select>
+                                </li>
+                            </ul>
+                            <div id="livraison_prix">
+                                <ul>
+                                    <li>
+                                        <strong>Livraison : </strong>
+                                        <span style="text-indent: 10px;color: orangered" id="montant_livraison"></span>
+                                        <em style="text-indent: 10px;color: orangered">frs</em>
+                                    </li>
+                                </ul>
+                            </div>
+                            <ul>
+                                <li><label for="contact"><strong>Qui appeler pour la reception ?</strong></label></li>
+                                <li><input type="tel" id="contact" name="contact" placeholder="Le contact"
+                                    value="{% if user.is_authenticated %}{{userInfo.contact}}{% endif %}"></li>
+                            </ul>
+                        </div>
+                        <div class="zoneT">
+                            <ul>
+                                <li><ion-icon name="pricetags" style="color: orange"></ion-icon></li>
+                                <li>
+                                    <strong>Total : </strong>
+                                    <span style="text-indent: 10px; color:orangered" id="total_price_cmmd"></span>
+                                    <em style="text-indent: 10px; color:orangered">fr</em>
+                                    <input type="hidden" name="sendTotal" id="setTotal">
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="zone_btn">
+                            <button type="submit">Commander</button>
+                        </div>
+                    </fieldset>
+                </div>
+            </form>
+        </section>
+    {% endif %}
+    </main>
+</body>
+
+</html>
+{% endblock contend %}

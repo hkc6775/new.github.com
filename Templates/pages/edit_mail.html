@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contend %}
+<section id="form_page_xdf">
+    <div class="title_page">
+        <nav>
+            <a href="{% url 'forms:infos_suplemented' %}"><ion-icon name="arrow-back"></ion-icon></a>
+        </nav>
+        <h3>Edition du mail</h3>
+    </div>
+
+    <ul class="class_ytln">
+        <li>
+            <div class="text">
+                <p>
+                    Modifier votre ancien mail de connexion. Si vous le modifier un mail de confirmation vous
+                    sera envoyer afin de vérifier votre nouveau mail. Votre compte sera désactivé Et réactivé après
+                    la vérification du nouveau mail.
+                </p>
+            </div>
+            <ul class="class_lopm">
+                <li><strong>Addresse mail : </strong> {% if user %}{{user.email}}{% endif %}</li>
+                <li>
+                    <form method="POST" action="{% url 'forms:mail_edition' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% include 'layouts/bulles/error_form.html' %}
+                        {% if succes %}
+                            <div style="position: relative;width: 100%;height: auto;box-sizing: border-box;
+                            justify-content: center;items-align: center;display: flex;flex-flow: wrap;padding: 10px;
+                            background: green;">
+                                <span style="color: white">{{succes}}</span>
+                            </div>
+                        {% endif %}
+                        {% if error %}
+                            <div style="position: relative;width: 100%;height: auto;box-sizing: border-box;
+                            justify-content: center;items-align: center;display: flex;flex-flow: wrap;padding: 10px;
+                            background: red;">
+                                <span style="color: white">{{error}}</span>
+                            </div>
+                        {% endif %}
+                        <ul>
+                            <li>
+                                {{ form.email }}
+                                {% if form.email.errors %}
+                                    <i class="error_input">{{ form.email.errors }}</i>
+                                {% endif %}
+                            </li>
+                        </ul>
+
+                        <div class="zone_btn">
+                            <button type="submit">Enreg</button>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</section>
+{% endblock contend %}

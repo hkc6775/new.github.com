@@ -1,0 +1,181 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block title %} Profil {% endblock title %} 
+
+{% block contend %}
+<section id="form_page_xdf">
+    <div class="title_page">
+        <nav>
+            <a href="{% url 'products:accueil' %}"><ion-icon name="arrow-back"></ion-icon></a>
+        </nav>
+        <h3>Compte client</h3>
+    </div>
+
+    <div class="logo_and_username">
+        <figure>
+            <img src="{% static 'img/user_logo.png' %}">
+        </figure>
+        <div class="username">
+            <div><strong>{% if user.nom or user.prenom %} {{user.nom}} {{user.prenom}} {% else %} Nom utilisateur {% endif %}</strong></div>
+            <div><a href="{% url 'forms:deconnected' %}">Déconnexion</a></div>
+        </div>
+    </div>
+
+    <form method="POST" action="{% url 'forms:infos_suplemented' %}" enctype="multipart/form-data">
+        {% csrf_token %} 
+        {% include 'layouts/bulles/error_form.html' %} 
+        {% if succes %}
+        <div class="succes">
+            {{ succes }}
+        </div>
+        {% endif %}
+        <div class="succes"></div>
+        <ul class="inp_and_icon">
+            <li>
+                <div class="info_champ">
+                    <div class="info_icon"><ion-icon name="create" class="icon"></ion-icon></div>
+                    <div class="text">
+                        <div>
+                            <strong style="margin-right:4px">Votre nom</strong>
+                            <i>Cet information nous servira à mieux communiqué avec vous.</i>
+                        </div>
+                        <div><strong>{% if user.nom %} {{user.nom}} {% else %} Aucune donnée disponible {% endif %}</strong></div>
+                    </div>
+                </div>
+                <ul class="xvfrt">
+                    <li>{{ form.nom }}</li>
+                    {% if form.nom.errors %}
+                    <li class="error_input">{{ form.nom.errors }}</li>
+                    {% endif %}
+                </ul>
+            </li>
+        </ul>
+
+        <ul class="inp_and_icon">
+            <li>
+                <div class="info_champ">
+                    <div class="info_icon"><ion-icon name="create" class="icon"></ion-icon></div>
+                    <div class="text">
+                        <div>
+                            <strong style="margin-right:4px">Votre prénom</strong>
+                            <i>Cet information nous servira à mieux communiqué avec vous.</i>
+                        </div>
+                        <div><strong>{% if user.prenom %} {{user.prenom}} {% else %} Aucune donnée disponible {% endif %}</strong></div>
+                    </div>
+                </div>
+                <ul class="xvfrt">
+                    <li>{{ form.prenom }}</li>
+                    {% if form.prenom.errors %}
+                    <li class="error_input">{{ form.prenom.errors }}</li>
+                    {% endif %}
+                </ul>
+            </li>
+        </ul>
+
+        <ul class="inp_and_icon">
+            <li>
+                <div class="info_champ">
+                    <div class="info_icon"><ion-icon name="create" class="icon"></ion-icon></div>
+                    <div class="text">
+                        <div>
+                            <strong style="margin-right:4px">Genre</strong>
+                            <i>Cet information nous servira à mieux communiqué avec vous.</i>
+                        </div>
+                        <div><strong>{% if user.sexe %} {{user.sexe}} {% else %} Aucune donnée disponible {% endif %}</strong></div>
+                    </div>
+                </div>
+                <ul class="xvfrt">
+                    <li>{{ form.sexe }}</li>
+                    {% if form.sexe.errors %}
+                    <li class="error_input">{{ form.sexe.errors }}</li>
+                    {% endif %}
+                </ul>
+            </li>
+        </ul>
+
+        <ul class="inp_and_icon">
+            <li>
+                <div class="info_champ">
+                    <div class="info_icon"><ion-icon name="create" class="icon"></ion-icon></div>
+                    <div class="text">
+                        <div>
+                            <strong style="margin-right:4px">Contact</strong>
+                            <i>Cet information nous servira à mieux communiqué avec vous.</i>
+                        </div>
+                        <div><strong>{% if user.contact %} {{user.contact}} {% else %} Aucune donnée disponible {% endif %}</strong></div>
+                    </div>
+                </div>
+                <ul class="xvfrt">
+                    <li>{{ form.contact }}</li>
+                    {% if form.contact.errors %}
+                    <li class="error_input">{{ form.contact.errors }}</li>
+                    {% endif %}
+                </ul>
+            </li>
+        </ul>
+
+
+        <ul class="inp_and_icon">
+            <li>
+                <div class="info_champ">
+                    <div class="info_icon"><ion-icon name="create" class="icon"></ion-icon></div>
+                    <div class="text">
+                        <div>
+                            <strong style="margin-right:4px">Ville</strong>
+                            <i>Cet information nous servira à mieux vous localiser.</i>
+                        </div>
+                        <div><strong>{% if user.ville %} {{user.ville}} {% else %} Aucune donnée disponible {% endif %}</strong></div>
+                    </div>
+                </div>
+                <ul class="xvfrt">
+                    <li>{{ form.ville }}</li>
+                    <datalist id="regions">
+                        {% for region in regions %}
+                            <option value="{{region.localisation}}"></option>
+                        {% endfor %}
+                    </datalist>
+                    {% if form.ville.errors %}
+                    <li class="error_input">{{ form.ville.errors }}</li>
+                    {% endif %}
+                </ul>
+            </li>
+        </ul>
+
+        <ul class="inp_and_icon">
+            <li>
+                <div class="info_champ">
+                    <div class="info_icon"><ion-icon name="create" class="icon"></ion-icon></div>
+                    <div class="text">
+                        <div>
+                            <strong style="margin-right:4px">Pays</strong>
+                            <i>Cet information nous servira à mieux vous localiser.</i>
+                        </div>
+                        <div><strong>{% if user.country %} {{user.country}} {% else %} Aucune donnée disponible {% endif %}</strong></div>
+                    </div>
+                </div>
+                <ul class="xvfrt">
+                    <li>{{ form.country }}</li>
+                    {% if form.country.errors %}
+                    <li class="error_input">{{ form.country.errors }}</li>
+                    {% endif %}
+                </ul>
+            </li>
+        </ul>
+        {% include 'layouts/button.html' %}
+    </form>
+
+    <div class="nav_bar">
+        <div class="logo_menu">
+            <span class="icon_menu">O</span>
+        </div>
+        <div class="zone_a">
+            <a href="{% url 'forms:mail_edition' %}">editer d'email</a>
+            <a href="{% url 'forms:password_edition' %}">editer de mot de passe</a>
+        </div>
+    </div>
+</section>
+{% endblock contend %}
+{% block script %}
+<script type="text/javascript" src="{% static 'js/toogle.js' %}" async defer></script>
+{% endblock script %}

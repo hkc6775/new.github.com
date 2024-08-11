@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: "Righteous", sans-serif;
+    font-style: normal;
+    box-sizing: border-box;
+}
+
+.righteous-regular {
+    font-family: "Righteous", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h3 {
+    position: relative;
+    font-size: 1.9em;
+    flex-flow: wrap;
+    display: flex;
+}
+
+p {
+    position: relative;
+    font-size: 1.3em;
+    flex-flow: wrap;
+    display: flex;
+}
+
+li {
+    position: relative;
+    list-style: none;
+}

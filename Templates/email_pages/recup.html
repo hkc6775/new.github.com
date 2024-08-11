@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Email page</title>
+    </head>
+    <body>
+        <div style="position: relative;display: block;">
+            <div style="position: relative;display: flex;flex-flow: wrap;font-size: 1.02em;
+            justify-content: center;items-align: center;">
+                <h4 style="position: relative;">
+                    HKCSERVICES.CI : mail de récupération du compte << {{to}} >>
+                </h4>
+            </div>
+
+            <div style="position: relative;display: flex;flex-flow: wrap;">
+                <p style="position: relative;">
+                    Bonjour,
+                    Vous avez demandé à réinitialiser votre mot de passe.
+                    Pour procéder à cette étape, veuillez cliquer sur le bouton confirmer et 
+                    <strong style='font-size: 1.3em'>{{email.code}}</strong> sera votre nouveau mot de passe.
+
+                    Si vous n'avez pas demandé cette réinitialisation, 
+                    veuillez ignorer cet email ou nous contacter immédiatement.
+
+                    Cordialement,
+                    L'équipe de support technique
+                </p>
+            </div>
+
+            <div style="position: relative;width: 100%;
+            height: auto;box-sizing: border-box;padding: 10px;display: flex;
+            justify-content: center;items-align: center;
+            ">
+                <a href="http://{{domaine}}/changePassword/{{user_mail}}/{{email.codesh}}" style="text-decoration: none;position: relative;width: auto;
+                height: auto;box-sizing: border-box;padding: 10px;display: flex;
+                background: blue;border-raduis: 20px;color: white">confirmer</a>
+            </div>
+        </div>
+    </body>
+</html>

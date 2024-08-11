@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="Fr">
+    <head>
+        <title> {% block title %}{% endblock %}</title>
+        <meta charset='UTF-8'>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% block script %}{% endblock script %}
+        <link rel="stylesheet" href="{% static 'css/form_page_connect.css' %}"/>
+        <link rel="stylesheet" href="{% static 'css/profil.css' %}"/>
+        <link rel="stylesheet" href="{% static 'css/styleone.css' %}"/>
+        <link rel="stylesheet" href="{% static 'css/load.css' %}"/>
+        <script type="text/javascript" src="{% static 'js/load.js' %}" defer></script>
+        {% block css %}{% endblock %}
+        <script  type="module"  src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" ></script> 
+        <script  nomodule  src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    </head>
+    {% autoescape off %}
+    <body>
+        <main>
+            {% block contend %}{% endblock contend %}
+        <main>
+        {% include 'layouts/layout/load.html' %}
+    </body>
+    {% endautoescape %}
+</html>

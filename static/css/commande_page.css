@@ -1,0 +1,590 @@
+@import 'root.css';
+@import 'body.css';
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-btn-orange: rgb(252, 101, 46);
+    --color-gray: #777;
+    --color-blanche: white;
+    --color-gray-clair: #d6d4d4;
+    --size-btn-hover: .9;
+    --size-buble-icon: 1.3em;
+}
+
+main header {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    box-sizing: border-box;
+}
+
+main header nav {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    display: flex;
+    box-sizing: border-box;
+}
+
+main header nav a {
+    position: relative;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    color: rgb(83, 83, 83);
+    font-size: 1.3em;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+main header nav strong {
+    position: relative;
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-flow: wrap;
+    color: black;
+    padding: 10px;
+    font-size: var(--size-buble-icon);
+    box-sizing: border-box;
+}
+
+main section {
+    position: relative;
+    width: auto;
+    height: auto;
+}
+
+main section form {
+    position: relative;
+    width: auto;
+    height: auto;
+}
+
+main section form #prod_form {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: column;
+    padding: 10px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    border: hidden;
+}
+
+main section form fieldset legend {
+    position: relative;
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-flow: wrap;
+    padding: 10px;
+    border: hidden;
+    box-sizing: border-box;
+    background: var(--color-gray-clair);
+    color: black;
+    font-weight: bold;
+    border-radius: 20px;
+}
+
+main section form fieldset #img_div {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+
+main section form fieldset #img_div figure {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    background: var(--color-gray);
+    border-radius: 20px;
+}
+
+main section form fieldset #img_div figure img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    border-radius: 20px;
+}
+
+main section form fieldset #prod_name_div {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    flex-flow: wrap;
+    box-sizing: border-box;
+}
+
+main section form fieldset #select_div {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    flex-flow: wrap;
+    box-sizing: border-box;
+}
+
+main section form fieldset #select_div select {
+    position: relative;
+    left: 10px;
+    width: 100px;
+    height: auto;
+    padding: 10px;
+    border-radius: 10px;
+    background: var(--color-btn-orange);
+    border: hidden;
+    color: var(--color-blanche);
+    outline: none;
+    box-sizing: border-box;
+}
+
+main section form fieldset #select_div select optgroup {
+    position: relative;
+    width: 100px;
+    height: auto;
+    padding: 10px;
+    border-radius: 10px;
+    border: hidden;
+    color: var(--color-blanche);
+    outline: none;
+    box-sizing: border-box;
+}
+
+main section form fieldset #select_div select optgroup option {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border: hidden;
+    color: var(--color-blanche);
+    outline: none;
+    font-size: 1em;
+}
+
+main section form fieldset #qt_div {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+
+main section form fieldset #qt_div ul {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+main section form fieldset #qt_div ul li:nth-child(1) {
+    position: relative;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+main section form fieldset #qt_div ul li:nth-child(2) {
+    position: relative;
+    width: auto;
+    height: auto;
+    display: flex;
+}
+
+main section form fieldset #qt_div ul li:nth-child(2) button {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    background: var(--color-btn-orange);
+    font-size: 1em;
+    font-weight: bold;
+    display: flex;
+    border: hidden;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    color: var(--color-blanche);
+    transition: 1s;
+}
+
+main section form fieldset #qt_div ul li:nth-child(2) button:hover {
+    position: relative;
+    scale: var(--size-btn-hover);
+    box-shadow: 2px 4px 6px var(--color-gray);
+}
+
+main section form fieldset #qt_div ul li:nth-child(2) #values {
+    position: relative;
+    width: 40px;
+    max-width: 100px;
+    height: auto;
+    min-width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background: var(--color-blanche);
+    margin-left: 5px;
+    margin-right: 5px;
+    box-sizing: border-box;
+    outline: none;
+    border: hidden;
+}
+
+.zone_infos_services {
+    position: relative;
+    display: none;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    box-sizing: border-box;
+    background: rgb(20, 150, 20);
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.zone_infos_services div:nth-child(1) {
+    position: relative;
+    width: 20%;
+    min-height: 90px;
+    height: auto;
+    display: flex;
+    background: var(--color-gray);
+    border-radius: 10px;
+}
+
+.zone_infos_services div:nth-child(1) img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background: yellow;
+}
+
+.zone_infos_services div:nth-child(2) {
+    position: relative;
+    width: 80%;
+    height: auto;
+    display: block;
+    padding: 10px;
+    box-sizing: border-box;
+    color: var(--color-blanche);
+}
+
+.zone_infos_services div:nth-child(2) strong {
+    position: relative;
+    display: flex;
+    flex-flow: wrap;
+}
+
+.zone_infos_services div:nth-child(2) p {
+    position: relative;
+    display: flex;
+    flex-flow: wrap;
+}
+
+main section form fieldset #zone_btn {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    border: hidden;
+}
+
+main section form fieldset #zone_btn button {
+    position: relative;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-btn-orange);
+    transition: 1s;
+    border: hidden;
+    color: var(--color-blanche);
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+main section form fieldset #zone_btn button:hover {
+    position: relative;
+    scale: var(--size-btn-hover);
+    box-shadow: 2px 4px 6px var(--color-gray);
+}
+
+main section form #zone_commande_directe {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+main section form #zone_commande_directe .go_form.active {
+    display: flex;
+}
+
+main section form #zone_commande_directe .go_form {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: none;
+    flex-flow: column;
+    padding: 10px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    border: hidden;
+}
+
+main section form #zone_commande_directe .panier_form {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: column;
+    padding: 10px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    border: hidden;
+}
+
+main section form #zone_commande_directe #zone_btn {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--color-gray);
+    box-sizing: border-box;
+}
+
+main section form #zone_commande_directe #zone_btn button {
+    position: relative;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-btn-orange);
+    transition: 1s;
+    border: hidden;
+    color: var(--color-blanche);
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+main section form #zone_commande_directe #zone_btn button:hover {
+    position: relative;
+    scale: var(--size-btn-hover);
+    box-shadow: 2px 4px 6px var(--color-gray);
+}
+
+#chmp {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+#chmp ul {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (max-width:980px) {
+    #chmp ul {
+        position: relative;
+        display: block;
+    }
+}
+
+#chmp ul li {
+    position: relative;
+    list-style: none;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#chmp ul li input {
+    position: relative;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    outline: none;
+    border: 2px solid var(--color-gray-clair);
+    font-size: 1em;
+    border-radius: 30px;
+    box-sizing: border-box;
+}
+
+#chmp ul li #commune {
+    position: relative;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    outline: none;
+    border: 2px solid var(--color-gray-clair);
+    font-size: 1em;
+    border-radius: 30px;
+    box-sizing: border-box;
+}
+
+.buble_connected {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    background: rgba(96, 241, 96, 0.445);
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.buble_connected .icon_zone {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-blanche);
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.buble_connected .icon_zone span {
+    position: relative;
+    font-size: var(--size-buble-icon);
+    color: var(--color-gray);
+}
+
+.buble_connected .text_zone {
+    position: relative;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    display: flex;
+    flex-flow: wrap;
+    box-sizing: border-box;
+}
+
+#storageSucces {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    box-sizing: border-box;
+    background: rgb(20, 150, 20);
+    display: none;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#storageSucces div:nth-child(1) {
+    position: relative;
+    width: 30%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#storageSucces div:nth-child(1) span {
+    position: relative;
+    font-size: var(--size-buble-icon);
+    color: var(--color-blanche);
+}
+
+#storageSucces div:nth-child(2) {
+    position: relative;
+    width: 70%;
+    height: auto;
+    display: flex;
+    flex-flow: wrap;
+    color: var(--color-gray-clair);
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.zoneT {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.zoneT ul {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    background: rgba(247, 192, 89, 0.685);
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.zoneT ul li:nth-child(1) {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    background: var(--color-blanche);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.zoneT ul li:nth-child(1) span {
+    position: relative;
+    font-size: var(--size-buble-icon);
+    color: var(--color-gray);
+}
+
+.zoneT ul li:nth-child(2) {
+    position: relative;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}

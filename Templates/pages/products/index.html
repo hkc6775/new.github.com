@@ -1,0 +1,219 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>accueil</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/scripts.js' %}" async defer></script>
+    <link rel="stylesheet" href="{% static 'css/load.css' %}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="{% static 'js/load.js' %}" defer></script>
+    <script  type="module"  src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" defer></script> 
+    <script  nomodule  src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+    <script src="https://unpkg.com/splitting/dist/splitting.min.js" defer></script>
+    <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js" defer></script>
+</head>
+<style>
+    ion-icon {
+        position: relative;
+        font-size: 1.3em;
+        margin-right: 5px;
+    }
+    a {
+        align-items: center;
+    }
+    span {
+        position: relative;
+        text-indent: 7px;
+    }
+    @media screen and (max-width:980px){
+        .text_icon {
+            display: none;
+        }
+    }
+</style>
+<body>
+    <header>
+        {% if user.is_authenticated %}
+        <a href="{% url 'forms:infos_suplemented' %}">
+            <figure>
+                <img src="{% static 'img/user_logo.png' %}">
+            </figure>
+        </a>
+        {% if userInfo %}
+        <div class="username" style="position: relative;
+        width: auto;height:auto;display: flex;padding: 10px;
+        flex-flow: wrap;">
+            <strong> 
+            {% if userInfo.nom and userInfo.prenom %}
+            Welcone {{userInfo.nom}} {{userInfo.prenom}} 
+            {% else %} 
+            <a href="{% url 'forms:infos_suplemented' %}" 
+            style="text-decoration: none">
+            Editer votre profil
+            </a> 
+            {% endif %}
+            </strong>
+        </div>
+        {% endif %}
+        {% endif %}
+        <div class="menu">
+            <a href="{% url 'products:panier' %}"><ion-icon name="cart"></ion-icon> <span class="text_icon">Panier</span></a>
+            <a href="{% url 'commandes:show_commands' %}"><ion-icon name="cart"></ion-icon> <span class="text_icon">Commandes</span></a>
+            {% if user.is_authenticated %}
+            {% else %}
+            <a href="{% url 'forms:login' %}"><ion-icon name="lock-open"></ion-icon> <span class="text_icon">Connexion</span></a>
+            <a href="{% url 'forms:register' %}"><ion-icon name="person-add"></ion-icon> <span class="text_icon">Inscription</span></a>
+            {% endif %}
+        </div>
+        <div class="title_site">
+            <h1>
+                MADE IN COTE D'IVOIRE
+            </h1>
+        </div>
+    </header>
+
+    <!--  conteneur product -->
+    {% if product %}
+    {% for item in product %}
+    <div class="conteneur_ad_plus">
+        {% if item.is_active %}
+        <div class="buble_is_activate" style="position:absolute;
+        width: auto;height: auto;padding:10px;box-sizing:border-box;
+        display:flex;background: green;transform:translate(50%, -50%);
+        z-index: 10000;justify-align:center;align-items:center;border-radius: 50%">
+            <span style="color: white;" style="position:relative;"><ion-icon name="notifications"></ion-icon></span>
+        </div>
+        {% else %}
+        <div class="buble_is_activate" style="position:absolute;
+        width: auto;height: auto;padding:10px;box-sizing:border-box;
+        display:flex;background: red;transform:translate(50%, -50%);
+        z-index: 10000;border-radius: 50%;z-index: 10000;justify-align:center;align-items:center;">
+            <span style="color: white" style="position:relative;"><ion-icon name="notifications-off"></ion-icon></span>
+        </div>
+        {% endif %}
+        <div class="conteneur">
+            <div class="flex">
+                <figure class="content_img_ad" style="--i:.8;background: rgb(0, 255, 76);">
+                    <img class="image-one" src="{{item.images_one.url}}" alt="{{item.name}}">
+                </figure>
+            </div>
+            <figure class="content_img" style="--i:.8;">
+                <img class="image" src="{{item.images_to.url}}" alt="{{item.name}}">
+            </figure>
+            <figure class="content_img" style="--i:.9;">
+                <img class="image" src="{{item.images_tree.url}}" alt="{{item.name}}">
+            </figure>
+            <figure class="content_img" style="--i:.8;">
+                <img class="image" src="{{item.images_four.url}}" alt="{{item.name}}">
+            </figure>
+            <figure class="content_img" style="--i:.9;">
+                <img class="image" src="{{item.images_five.url}}" alt="{{item.name}}">
+            </figure>
+        </div>
+
+        <div class="description_prod">
+            <div class="title_prod">
+                <h1>{{item.name}}</h1>
+            </div>
+            <div class="descrip_prod">
+                <p data-splitting class="descrip">{{item.description}}</p>
+            </div>
+            {% if item.is_active %}
+            <a href="produit/{{item.categorie}}/{{item.id}}">
+                <div class="btn_prod">
+                    Commander
+                </div>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    <footer>
+        <figure>
+            <img src="{% static 'img/ab3.jfif' %}">
+        </figure>
+        <div class="present_zone">
+            <ul>
+                <li class="acentrer"><strong>A propos de nous </strong></li>
+                <li>
+                    <p>
+                        <strong>Bienvenue sur IvoireVivriers.com</strong><br>
+                        Découvrez l'excellence des produits vivriers de Côte d'Ivoire ! 
+                        IvoireVivriers.com est la plateforme incontournable pour tous vos besoins en produits vivriers en gros, 
+                        directement importés de Côte d'Ivoire. Nous nous engageons à offrir une gamme variée et de haute qualité, 
+                        tout en soutenant les producteurs locaux 
+                        et en garantissant la fraîcheur et l’authenticité de nos produits.
+                    </p>
+
+                    <p>
+                        <strong>Nos Produits :</strong><br>
+                        <span>
+                            <strong>. Fruits et Légumes :</strong>
+                            Explorez notre sélection de fruits tropicaux frais, légumes savoureux et autres délices de saison. 
+                            De l’igname au manioc, en passant par les bananes plantains et les mangues, 
+                            nous vous offrons le meilleur de notre terroir.
+                        </span><br>
+                        <span>
+                            <strong>. Épices et Condiments : </strong>
+                            Réhaussez vos plats avec nos épices artisanales et condiments locaux. 
+                            Poivre de Côte d'Ivoire, piments séchés, et bien plus encore, 
+                            pour donner une touche unique à vos préparations culinaires.
+                        </span><br>
+                        <span>
+                            <strong>. Soutien aux Producteurs Locaux : </strong>
+                            En achetant sur notre site, vous soutenez les agriculteurs et les producteurs ivoiriens, 
+                            contribuant ainsi au développement durable de notre communauté.
+                        </span><br>
+                        <span>
+                            <strong>. Livraison Fiable : </strong>
+                            Nous assurons une livraison rapide et sécurisée, 
+                            avec des options flexibles pour répondre à vos besoins logistiques.
+                        </span>
+                    </p>
+                    <p>
+                        <strong>Comment Commander ?</strong><br>
+                        <span><strong>1. Inscrivez-vous</strong> sur notre site pour créer un compte professionnel.</span><br>
+                        <span><strong>2. Explorez</strong> notre catalogue en ligne et sélectionnez les produits qui vous intéressent.</span><br>
+                        <span><strong>3. Passez commande</strong> en ligne.</span><br>
+                        <span><strong>4. Recevez vos produits</strong> directement à l'adresse de votre choix dans les délais prévus.
+                        </span><br>
+                    </p>
+                    <p>
+                        <strong>Nous contacter :</strong><br>
+                        Pour toute question ou demande spécifique, notre service client est à votre disposition. 
+                        N’hésitez pas à nous contacter par téléphone aux numéros suivants : <strong>+2250767755738/+2250141285225</strong>, 
+                        email <a href="mailto:hkcservices.ci.com" style="left:7px">Envoyer un email</a> ou via notre formulaire en ligne pour une assistance personnalisée.
+                    </p>
+                    <p>
+                        <strong>Rejoignez-nous sur les réseaux sociaux </strong>
+                        pour suivre nos actualités, découvrir nos offres spéciales et 
+                        partager votre expérience avec notre communauté !
+                    </p><br>
+                    <p>
+                        <strong>IvoireVivriers.com – La qualité des produits 
+                            vivriers de Côte d'Ivoire à portée de clic !</strong>
+                    </p>
+                </li>
+                <li class="acentrer"><strong>Partager</strong></li>
+                <li class="acentrer">
+                    <button id="facebook">Facebook</button>
+                    <button id="whatsapp">Whatsapp</button>
+                </li>
+            </ul>
+        </div>
+    </footer>
+    {% include 'layouts/layout/load.html' %}
+</body>
+</html>
